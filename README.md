@@ -53,7 +53,15 @@ python3 cli/build.py                            # 构建 dist/artexctl
 dist/artexctl --version
 ```
 
-`cli/generate_catalog.py` 从后端源码的路由注册重新生成 API 目录（`cli/artex_cli/catalog.json`）。它需要 ARTEX 后端源码树（monorepo 布局下的 `server/*.go`）；独立检出时使用仓库自带的预生成目录，后端新增接口可先用 `api request` 调用。
+`cli/generate_catalog.py` 从后端源码的路由注册重新生成 API 目录（`cli/artex_cli/catalog.json`）。它需要 [ARTEX 后端源码树](https://github.com/EnglandLobster/ARTEX-latest)，独立检出时用 `--root` 指向后端仓库：
+
+```bash
+git clone https://github.com/EnglandLobster/ARTEX-latest.git ../ARTEX-latest
+python3 cli/generate_catalog.py --root ../ARTEX-latest          # 重新生成
+python3 cli/generate_catalog.py --root ../ARTEX-latest --check  # 校验是否过期
+```
+
+后端新增接口时可先用 `api request` 直接调用，再重新生成目录。
 
 ## 授权使用的提醒
 

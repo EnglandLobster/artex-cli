@@ -80,11 +80,13 @@ def catalog(root=ROOT):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument("--root", type=pathlib.Path, default=ROOT,
+                        help="ARTEX backend source root containing server/ (for cross-repo checkouts)")
     args = parser.parse_args()
-    content = json.dumps(catalog(), ensure_ascii=False, indent=2) + "\n"
+    content = json.dumps(catalog(args.root), ensure_ascii=False, indent=2) + "\n"
     if args.check:
         if not DEST.exists() or DEST.read_text() != content:
-            parser.exit(1, "API catalog is stale; run python3 cli/generate_catalog.py\n")
+            parser.exit(1, "API catalog is stale; run python3 cli/generate_catalog.py --root <backend>\n")
     else:
         DEST.write_text(content)
-    print(f"{len(catalog())} routes")
+    print(f"{len(catalog(args.root))} routes")
