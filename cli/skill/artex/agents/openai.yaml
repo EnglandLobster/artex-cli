@@ -1,0 +1,4 @@
+interface:
+  display_name: "ARTEX"
+  short_description: "通过 CLI 与 SSH 管理 ARTEX 任务、漏洞、证据、审批及平台配置"
+  default_prompt: "使用 $artex 检查远端 ARTEX 平台的任务、发现和需要处理的审批。"

@@ -1,0 +1,306 @@
+{
+  "verified_on": "2026-10-20",
+  "backend": "0.3.15-hardened",
+  "transport": "SSH alias to remote 127.0.0.1:8787",
+  "read_checks": [
+    {
+      "command": "health",
+      "exit": 0,
+      "shape": [
+        "ok",
+        "service",
+        "version"
+      ]
+    },
+    {
+      "command": "stats",
+      "exit": 0,
+      "shape": [
+        "active_task",
+        "asset_counts",
+        "assets",
+        "engine_mode",
+        "exploration",
+        "llm_configured",
+        "traffic",
+        "traffic_enabled"
+      ]
+    },
+    {
+      "command": "tasks list",
+      "exit": 0,
+      "shape": [
+        "active",
+        "tasks"
+      ]
+    },
+    {
+      "command": "findings list --page 1 --size 2",
+      "exit": 0,
+      "shape": [
+        "items",
+        "page",
+        "page_size",
+        "total"
+      ]
+    },
+    {
+      "command": "findings stats",
+      "exit": 0,
+      "shape": [
+        "total",
+        "pending",
+        "critical",
+        "high",
+        "medium",
+        "low",
+        "vulnclasses",
+        "tasks"
+      ]
+    },
+    {
+      "command": "assets counts",
+      "exit": 0,
+      "shape": [
+        "app",
+        "endpoint",
+        "ip",
+        "root_domain",
+        "service",
+        "subdomain"
+      ]
+    },
+    {
+      "command": "companies list",
+      "exit": 0,
+      "shape": "list"
+    },
+    {
+      "command": "conversations list",
+      "exit": 0,
+      "shape": [
+        "conversations"
+      ]
+    },
+    {
+      "command": "agents list",
+      "exit": 0,
+      "shape": [
+        "agents"
+      ]
+    },
+    {
+      "command": "tools list",
+      "exit": 0,
+      "shape": [
+        "tools"
+      ]
+    },
+    {
+      "command": "llm profiles",
+      "exit": 0,
+      "shape": [
+        "profiles"
+      ]
+    },
+    {
+      "command": "llm pool",
+      "exit": 0,
+      "shape": [
+        "bind_fallback",
+        "chain",
+        "enabled"
+      ]
+    },
+    {
+      "command": "mcp list",
+      "exit": 0,
+      "shape": [
+        "servers"
+      ]
+    },
+    {
+      "command": "skills list",
+      "exit": 0,
+      "shape": [
+        "skills"
+      ]
+    },
+    {
+      "command": "skills missing",
+      "exit": 0,
+      "shape": [
+        "missing"
+      ]
+    },
+    {
+      "command": "settings get",
+      "exit": 0,
+      "shape": [
+        "agent_traffic_binding",
+        "brave_key_set",
+        "constraints_inject_planner",
+        "constraints_inject_worker",
+        "global_proxy",
+        "llm_pool_bind_fallback",
+        "llm_pool_enabled",
+        "llm_record",
+        "noa_compaction",
+        "notify_digest_interval_min"
+      ]
+    },
+    {
+      "command": "approvals pending",
+      "exit": 0,
+      "shape": [
+        "pending"
+      ]
+    },
+    {
+      "command": "rules list",
+      "exit": 0,
+      "shape": [
+        "rules"
+      ]
+    },
+    {
+      "command": "asset-rules list",
+      "exit": 0,
+      "shape": [
+        "rules"
+      ]
+    },
+    {
+      "command": "notify list",
+      "exit": 0,
+      "shape": [
+        "channels"
+      ]
+    },
+    {
+      "command": "sync status",
+      "exit": 0,
+      "shape": [
+        "configured",
+        "enabled",
+        "exists",
+        "reachable",
+        "tools",
+        "url"
+      ]
+    },
+    {
+      "command": "sync fofa-config",
+      "exit": 0,
+      "shape": [
+        "base_url",
+        "email",
+        "endpoint",
+        "key_set",
+        "presets",
+        "valid"
+      ]
+    },
+    {
+      "command": "traffic hosts",
+      "exit": 0,
+      "shape": [
+        "hosts"
+      ]
+    },
+    {
+      "command": "commands list --size 1",
+      "exit": 0,
+      "shape": [
+        "commands",
+        "total"
+      ]
+    },
+    {
+      "command": "llm-records list --size 1",
+      "exit": 0,
+      "shape": [
+        "records",
+        "total"
+      ]
+    },
+    {
+      "command": "archives list --size 1",
+      "exit": 0,
+      "shape": [
+        "items",
+        "total",
+        "page",
+        "size"
+      ]
+    },
+    {
+      "command": "categories list",
+      "exit": 0,
+      "shape": [
+        "categories"
+      ]
+    },
+    {
+      "command": "templates list",
+      "exit": 0,
+      "shape": [
+        "templates"
+      ]
+    }
+  ],
+  "workflow_checks": [
+    {
+      "check": "SSH multipart binary upload/download, Unicode filename, exact 262144-byte round trip",
+      "passed": true
+    },
+    {
+      "check": "workspace text write/read",
+      "passed": true
+    },
+    {
+      "check": "skill ZIP upload and nested file read",
+      "passed": true
+    },
+    {
+      "check": "filtered findings JSON and Markdown evidence ZIP exports",
+      "passed": true
+    },
+    {
+      "check": "SSH backend log SSE to NDJSON, bounded stop",
+      "passed": true,
+      "events": 2
+    },
+    {
+      "check": "live backend 404 returns nonzero exit",
+      "passed": true
+    },
+    {
+      "check": "CLI executed directly on the remote server",
+      "passed": true
+    },
+    {
+      "check": "temporary remote workspace and skill fixtures removed",
+      "passed": true
+    }
+  ],
+  "cli_version": "0.1.0",
+  "catalog_routes": 266,
+  "convenience_commands": 201,
+  "unit_http_tests": {
+    "passed": 23,
+    "runtimes": [
+      "macOS Python 3.14.6",
+      "Ubuntu 24.04 Python 3.12.3"
+    ]
+  },
+  "installer_checks": [
+    "fresh installation",
+    "idempotent reinstallation",
+    "unmanaged destination protection"
+  ],
+  "skill_validation": "passed",
+  "fixture_cleanup": "remote workspace directory and temporary skill removed",
+  "backend_restart": false,
+  "live_scans_started": false
+}

@@ -1,0 +1,3059 @@
+[
+  {
+    "operation": "set-active",
+    "method": "POST",
+    "path": "/api/active",
+    "handler": "setActive",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "id"
+    ]
+  },
+  {
+    "operation": "list-agents",
+    "method": "GET",
+    "path": "/api/agents",
+    "handler": "pgListAgents",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-agent",
+    "method": "POST",
+    "path": "/api/agents",
+    "handler": "pgCreateAgent",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-agent",
+    "method": "DELETE",
+    "path": "/api/agents/{key}",
+    "handler": "pgDeleteAgent",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-agent",
+    "method": "GET",
+    "path": "/api/agents/{key}",
+    "handler": "pgGetAgent",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-agent",
+    "method": "PATCH",
+    "path": "/api/agents/{key}",
+    "handler": "pgUpdateAgent",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "save-agent-config",
+    "method": "PUT",
+    "path": "/api/agents/{key}/config",
+    "handler": "pgSaveAgentConfig",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "interactive_shell",
+      "llm_profile_id",
+      "max_turns",
+      "run_seconds",
+      "trigger_max_parallel",
+      "trigger_merge_mode",
+      "trigger_run_mode",
+      "web_search"
+    ]
+  },
+  {
+    "operation": "save-prompt",
+    "method": "PUT",
+    "path": "/api/agents/{key}/prompt",
+    "handler": "pgSavePrompt",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "preview-prompt",
+    "method": "POST",
+    "path": "/api/agents/{key}/prompt/preview",
+    "handler": "pgPreviewPrompt",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "sample",
+      "template"
+    ]
+  },
+  {
+    "operation": "reset-prompt",
+    "method": "POST",
+    "path": "/api/agents/{key}/prompt/reset",
+    "handler": "pgResetPrompt",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-prompt-versions",
+    "method": "GET",
+    "path": "/api/agents/{key}/prompts",
+    "handler": "pgListPromptVersions",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-triggers",
+    "method": "GET",
+    "path": "/api/agents/{key}/triggers",
+    "handler": "pgListTriggers",
+    "source": "server/triggers.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-trigger",
+    "method": "POST",
+    "path": "/api/agents/{key}/triggers",
+    "handler": "pgCreateTrigger",
+    "source": "server/triggers.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled",
+      "finding_message",
+      "goal_message",
+      "interval_message",
+      "interval_sec",
+      "on_finding",
+      "on_goal_met",
+      "on_task_create",
+      "on_task_timeout",
+      "on_tool_call",
+      "task_create_message",
+      "task_timeout_message",
+      "tool_call_message",
+      "tool_names"
+    ]
+  },
+  {
+    "operation": "prompt-vars",
+    "method": "GET",
+    "path": "/api/agents/{key}/variables",
+    "handler": "pgPromptVars",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-agent-visibility",
+    "method": "GET",
+    "path": "/api/agents/{key}/visibility",
+    "handler": "pgGetAgentVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "set-agent-visibility",
+    "method": "PUT",
+    "path": "/api/agents/{key}/visibility",
+    "handler": "pgSetAgentVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "mcp",
+      "skill"
+    ]
+  },
+  {
+    "operation": "save-wrapup",
+    "method": "PUT",
+    "path": "/api/agents/{key}/wrapup",
+    "handler": "pgSaveWrapup",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "max_turns",
+      "prompt"
+    ]
+  },
+  {
+    "operation": "reset-wrapup",
+    "method": "POST",
+    "path": "/api/agents/{key}/wrapup/reset",
+    "handler": "pgResetWrapup",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "save-task-timeout-wrapup",
+    "method": "PUT",
+    "path": "/api/agents/{key}/wrapup/task-timeout",
+    "handler": "pgSaveTaskTimeoutWrapup",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "max_turns",
+      "prompt"
+    ]
+  },
+  {
+    "operation": "reset-task-timeout-wrapup",
+    "method": "POST",
+    "path": "/api/agents/{key}/wrapup/task-timeout/reset",
+    "handler": "pgResetTaskTimeoutWrapup",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "asset-intercept-list-rules",
+    "method": "GET",
+    "path": "/api/asset-intercept/rules",
+    "handler": "assetInterceptListRules",
+    "source": "server/asset_intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "asset-intercept-create-rule",
+    "method": "POST",
+    "path": "/api/asset-intercept/rules",
+    "handler": "assetInterceptCreateRule",
+    "source": "server/asset_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled",
+      "kind",
+      "note",
+      "pattern"
+    ]
+  },
+  {
+    "operation": "asset-intercept-delete-rule",
+    "method": "DELETE",
+    "path": "/api/asset-intercept/rules/{id}",
+    "handler": "assetInterceptDeleteRule",
+    "source": "server/asset_intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "asset-intercept-update-rule",
+    "method": "PUT",
+    "path": "/api/asset-intercept/rules/{id}",
+    "handler": "assetInterceptUpdateRule",
+    "source": "server/asset_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled",
+      "kind",
+      "note",
+      "pattern"
+    ]
+  },
+  {
+    "operation": "asset-intercept-toggle-rule",
+    "method": "POST",
+    "path": "/api/asset-intercept/rules/{id}/toggle",
+    "handler": "assetInterceptToggleRule",
+    "source": "server/asset_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled"
+    ]
+  },
+  {
+    "operation": "delete-assets",
+    "method": "DELETE",
+    "path": "/api/assets",
+    "handler": "deleteAssets",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "ids"
+    ]
+  },
+  {
+    "operation": "list-assets",
+    "method": "GET",
+    "path": "/api/assets",
+    "handler": "listAssets",
+    "source": "server/assets.go",
+    "query_hints": [
+      "company_id",
+      "dsl",
+      "limit",
+      "offset",
+      "task_id",
+      "type"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "insert-assets",
+    "method": "POST",
+    "path": "/api/assets",
+    "handler": "insertAssets",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "app_icp",
+      "app_name",
+      "assets",
+      "auth",
+      "bound_domains",
+      "bundle_id",
+      "category",
+      "content_length",
+      "description",
+      "domain",
+      "error",
+      "favicon_mmh3",
+      "icp",
+      "id",
+      "index",
+      "ip",
+      "method",
+      "open_ports",
+      "page_title",
+      "params",
+      "port",
+      "record_type",
+      "record_value",
+      "service_ip",
+      "service_name",
+      "status_code",
+      "task_id",
+      "technologies",
+      "type",
+      "url"
+    ]
+  },
+  {
+    "operation": "asset-counts",
+    "method": "GET",
+    "path": "/api/assets/counts",
+    "handler": "assetCounts",
+    "source": "server/assets.go",
+    "query_hints": [
+      "task_id"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-audit",
+    "method": "GET",
+    "path": "/api/audit",
+    "handler": "getAudit",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "auth-change-password",
+    "method": "POST",
+    "path": "/api/auth/change-password",
+    "handler": "authChangePassword",
+    "source": "server/auth.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "new_password",
+      "old_password"
+    ]
+  },
+  {
+    "operation": "auth-init",
+    "method": "POST",
+    "path": "/api/auth/init",
+    "handler": "authInit",
+    "source": "server/auth.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "password"
+    ]
+  },
+  {
+    "operation": "auth-login",
+    "method": "POST",
+    "path": "/api/auth/login",
+    "handler": "authLogin",
+    "source": "server/auth.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "password",
+      "username"
+    ]
+  },
+  {
+    "operation": "auth-status",
+    "method": "GET",
+    "path": "/api/auth/status",
+    "handler": "authStatus",
+    "source": "server/auth.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "chat",
+    "method": "POST",
+    "path": "/api/chat",
+    "handler": "chat",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": [
+      "attachments",
+      "message",
+      "seg"
+    ]
+  },
+  {
+    "operation": "search-chat-mentions",
+    "method": "GET",
+    "path": "/api/chat/mentions",
+    "handler": "searchChatMentions",
+    "source": "server/chat_mentions.go",
+    "query_hints": [
+      "cursor",
+      "kind",
+      "q"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "chat-upload",
+    "method": "POST",
+    "path": "/api/chat/upload",
+    "handler": "chatUpload",
+    "source": "server/chatupload.go",
+    "query_hints": [
+      "id",
+      "scope"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-commands",
+    "method": "GET",
+    "path": "/api/commands",
+    "handler": "pgListCommands",
+    "source": "server/commands.go",
+    "query_hints": [
+      "page",
+      "q",
+      "size",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "tool-stats",
+    "method": "GET",
+    "path": "/api/commands/stats",
+    "handler": "pgToolStats",
+    "source": "server/commands.go",
+    "query_hints": [
+      "q",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-companies",
+    "method": "GET",
+    "path": "/api/companies",
+    "handler": "listCompanies",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-company",
+    "method": "POST",
+    "path": "/api/companies",
+    "handler": "createCompany",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "logo",
+      "name",
+      "scope"
+    ]
+  },
+  {
+    "operation": "reattribute",
+    "method": "POST",
+    "path": "/api/companies/reattribute",
+    "handler": "reattribute",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-company",
+    "method": "DELETE",
+    "path": "/api/companies/{id}",
+    "handler": "deleteCompany",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "delete_assets"
+    ]
+  },
+  {
+    "operation": "get-company",
+    "method": "GET",
+    "path": "/api/companies/{id}",
+    "handler": "getCompany",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "add-company-scope",
+    "method": "POST",
+    "path": "/api/companies/{id}/scope",
+    "handler": "addCompanyScope",
+    "source": "server/assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "reason",
+      "reset",
+      "scope"
+    ]
+  },
+  {
+    "operation": "list-conversations",
+    "method": "GET",
+    "path": "/api/conversations",
+    "handler": "pgListConversations",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-conversation",
+    "method": "POST",
+    "path": "/api/conversations",
+    "handler": "pgCreateConversation",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agent_key",
+      "llm_profile_id",
+      "title"
+    ]
+  },
+  {
+    "operation": "delete-conversations-batch",
+    "method": "POST",
+    "path": "/api/conversations/delete/batch",
+    "handler": "pgDeleteConversationsBatch",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "ids"
+    ]
+  },
+  {
+    "operation": "delete-conversation",
+    "method": "DELETE",
+    "path": "/api/conversations/{id}",
+    "handler": "pgDeleteConversation",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "rename-conversation",
+    "method": "PATCH",
+    "path": "/api/conversations/{id}",
+    "handler": "pgRenameConversation",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "pinned",
+      "title"
+    ]
+  },
+  {
+    "operation": "conversation-messages",
+    "method": "GET",
+    "path": "/api/conversations/{id}/messages",
+    "handler": "pgConversationMessages",
+    "source": "server/conversations.go",
+    "query_hints": [
+      "before",
+      "limit",
+      "since"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "send-conversation-message",
+    "method": "POST",
+    "path": "/api/conversations/{id}/messages",
+    "handler": "pgSendConversationMessage",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "attachments",
+      "message"
+    ]
+  },
+  {
+    "operation": "conversation-msg-detail",
+    "method": "GET",
+    "path": "/api/conversations/{id}/messages/{seq}",
+    "handler": "pgConversationMsgDetail",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-conversation",
+    "method": "PATCH",
+    "path": "/api/conversations/{id}/profile",
+    "handler": "pgUpdateConversation",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "llm_profile_id"
+    ]
+  },
+  {
+    "operation": "delete-conversations-id-side-questions",
+    "method": "DELETE",
+    "path": "/api/conversations/{id}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "get-conversations-id-side-questions",
+    "method": "GET",
+    "path": "/api/conversations/{id}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "post-conversations-id-side-questions",
+    "method": "POST",
+    "path": "/api/conversations/{id}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "stop-conversation",
+    "method": "POST",
+    "path": "/api/conversations/{id}/stop",
+    "handler": "pgStopConversation",
+    "source": "server/conversations.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "activity",
+    "method": "GET",
+    "path": "/api/exploration/activity",
+    "handler": "activity",
+    "source": "server/server.go",
+    "query_hints": [
+      "intent",
+      "limit",
+      "since",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "activity-history",
+    "method": "GET",
+    "path": "/api/exploration/activity/history",
+    "handler": "activityHistory",
+    "source": "server/server.go",
+    "query_hints": [
+      "before",
+      "limit",
+      "session",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "stream-activity",
+    "method": "GET",
+    "path": "/api/exploration/activity/stream",
+    "handler": "streamActivity",
+    "source": "server/server.go",
+    "query_hints": [
+      "intent",
+      "since",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "activity-detail",
+    "method": "GET",
+    "path": "/api/exploration/activity/{seq}",
+    "handler": "activityDetail",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "findings",
+    "method": "GET",
+    "path": "/api/exploration/findings",
+    "handler": "findings",
+    "source": "server/server.go",
+    "query_hints": [
+      "limit",
+      "page",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "finding-asset-tree",
+    "method": "GET",
+    "path": "/api/exploration/findings/asset-tree",
+    "handler": "findingAssetTree",
+    "source": "server/findings_groups.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "findings-export",
+    "method": "GET",
+    "path": "/api/exploration/findings/export",
+    "handler": "findingsExport",
+    "source": "server/server.go",
+    "query_hints": [
+      "format",
+      "ids",
+      "scope"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "finding-groups",
+    "method": "GET",
+    "path": "/api/exploration/findings/groups",
+    "handler": "findingGroups",
+    "source": "server/findings_groups.go",
+    "query_hints": [
+      "limit",
+      "page"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-active-finding-retests",
+    "method": "GET",
+    "path": "/api/exploration/findings/retests/active",
+    "handler": "listActiveFindingRetests",
+    "source": "server/finding_retests.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "finding-stats",
+    "method": "GET",
+    "path": "/api/exploration/findings/stats",
+    "handler": "findingStats",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-finding",
+    "method": "DELETE",
+    "path": "/api/exploration/findings/{id}",
+    "handler": "deleteFinding",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-finding",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}",
+    "handler": "getFinding",
+    "source": "server/server.go",
+    "query_hints": [
+      "context_task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "patch-finding",
+    "method": "PATCH",
+    "path": "/api/exploration/findings/{id}",
+    "handler": "patchFinding",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "name",
+      "severity",
+      "status",
+      "vulnclass"
+    ]
+  },
+  {
+    "operation": "deepen-finding",
+    "method": "POST",
+    "path": "/api/exploration/findings/{id}/deepen",
+    "handler": "deepenFinding",
+    "source": "server/findings_groups.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "description"
+    ]
+  },
+  {
+    "operation": "finding-lineage",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}/lineage",
+    "handler": "findingLineage",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-finding-retests",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}/retests",
+    "handler": "listFindingRetests",
+    "source": "server/finding_retests.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "start-finding-retest",
+    "method": "POST",
+    "path": "/api/exploration/findings/{id}/retests",
+    "handler": "startFindingRetest",
+    "source": "server/finding_retests.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "notes"
+    ]
+  },
+  {
+    "operation": "get-finding-traffic",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}/traffic",
+    "handler": "getFindingTraffic",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "bind-finding-traffic",
+    "method": "POST",
+    "path": "/api/exploration/findings/{id}/traffic",
+    "handler": "bindFindingTraffic",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "traffic_refs"
+    ]
+  },
+  {
+    "operation": "put-exploration-findings-id-traffic-order",
+    "method": "PUT",
+    "path": "/api/exploration/findings/{id}/traffic/order",
+    "handler": "editFindingTraffic",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "binding_ids",
+      "note",
+      "role",
+      "version"
+    ]
+  },
+  {
+    "operation": "delete-exploration-findings-id-traffic-binding-id",
+    "method": "DELETE",
+    "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+    "handler": "editFindingTraffic",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "binding_ids",
+      "note",
+      "role",
+      "version"
+    ]
+  },
+  {
+    "operation": "get-finding-traffic-detail",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+    "handler": "getFindingTrafficDetail",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "patch-exploration-findings-id-traffic-binding-id",
+    "method": "PATCH",
+    "path": "/api/exploration/findings/{id}/traffic/{binding_id}",
+    "handler": "editFindingTraffic",
+    "source": "server/finding_traffic.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "binding_ids",
+      "note",
+      "role",
+      "version"
+    ]
+  },
+  {
+    "operation": "get-finding-traffic-body",
+    "method": "GET",
+    "path": "/api/exploration/findings/{id}/traffic/{binding_id}/body",
+    "handler": "getFindingTrafficBody",
+    "source": "server/finding_traffic.go",
+    "query_hints": [
+      "download",
+      "side"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "frontier",
+    "method": "GET",
+    "path": "/api/exploration/frontier",
+    "handler": "frontier",
+    "source": "server/server.go",
+    "query_hints": [
+      "limit",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "exploration-graph",
+    "method": "GET",
+    "path": "/api/exploration/graph",
+    "handler": "explorationGraph",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intents",
+    "method": "GET",
+    "path": "/api/exploration/intents",
+    "handler": "intents",
+    "source": "server/server.go",
+    "query_hints": [
+      "before",
+      "limit",
+      "page",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "new-main-session",
+    "method": "POST",
+    "path": "/api/exploration/main-session/new",
+    "handler": "newMainSession",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "main-sessions",
+    "method": "GET",
+    "path": "/api/exploration/main-sessions",
+    "handler": "mainSessions",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "exploration-nodes",
+    "method": "GET",
+    "path": "/api/exploration/nodes",
+    "handler": "explorationNodes",
+    "source": "server/server.go",
+    "query_hints": [
+      "kind",
+      "order",
+      "page",
+      "q",
+      "size",
+      "state",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "token-stats",
+    "method": "GET",
+    "path": "/api/exploration/tokens",
+    "handler": "tokenStats",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "gc",
+    "method": "POST",
+    "path": "/api/gc",
+    "handler": "gc",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "health",
+    "method": "GET",
+    "path": "/api/health",
+    "handler": "health",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-history",
+    "method": "GET",
+    "path": "/api/intercept/history",
+    "handler": "interceptHistory",
+    "source": "server/intercept.go",
+    "query_hints": [
+      "page",
+      "size"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-detail",
+    "method": "GET",
+    "path": "/api/intercept/history/{id}",
+    "handler": "interceptDetail",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-execution",
+    "method": "GET",
+    "path": "/api/intercept/history/{id}/execution",
+    "handler": "interceptExecution",
+    "source": "server/intercept.go",
+    "query_hints": [
+      "conversation"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-get-judge-config",
+    "method": "GET",
+    "path": "/api/intercept/judge",
+    "handler": "interceptGetJudgeConfig",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-set-judge-config",
+    "method": "PUT",
+    "path": "/api/intercept/judge",
+    "handler": "interceptSetJudgeConfig",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-judge-usage",
+    "method": "GET",
+    "path": "/api/intercept/judge/usage",
+    "handler": "interceptJudgeUsage",
+    "source": "server/intercept.go",
+    "query_hints": [
+      "days"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-list-pending",
+    "method": "GET",
+    "path": "/api/intercept/pending",
+    "handler": "interceptListPending",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-get-one",
+    "method": "GET",
+    "path": "/api/intercept/pending/{id}",
+    "handler": "interceptGetOne",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-decide",
+    "method": "POST",
+    "path": "/api/intercept/pending/{id}/decide",
+    "handler": "interceptDecide",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "decision"
+    ]
+  },
+  {
+    "operation": "intercept-list-rules",
+    "method": "GET",
+    "path": "/api/intercept/rules",
+    "handler": "interceptListRules",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-create-rule",
+    "method": "POST",
+    "path": "/api/intercept/rules",
+    "handler": "interceptCreateRule",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "enabled",
+      "match_target",
+      "match_type",
+      "message",
+      "name",
+      "pattern",
+      "priority",
+      "timeout_action",
+      "timeout_enabled",
+      "timeout_seconds"
+    ]
+  },
+  {
+    "operation": "intercept-delete-rule",
+    "method": "DELETE",
+    "path": "/api/intercept/rules/{id}",
+    "handler": "interceptDeleteRule",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-update-rule",
+    "method": "PUT",
+    "path": "/api/intercept/rules/{id}",
+    "handler": "interceptUpdateRule",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "enabled",
+      "match_target",
+      "match_type",
+      "message",
+      "name",
+      "pattern",
+      "priority",
+      "timeout_action",
+      "timeout_enabled",
+      "timeout_seconds"
+    ]
+  },
+  {
+    "operation": "intercept-toggle-rule",
+    "method": "POST",
+    "path": "/api/intercept/rules/{id}/toggle",
+    "handler": "interceptToggleRule",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled"
+    ]
+  },
+  {
+    "operation": "intercept-list-task-items",
+    "method": "GET",
+    "path": "/api/intercept/task/{taskID}",
+    "handler": "interceptListTaskItems",
+    "source": "server/intercept.go",
+    "query_hints": [
+      "page",
+      "size"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-get-tool-config",
+    "method": "GET",
+    "path": "/api/intercept/tool-config",
+    "handler": "interceptGetToolConfig",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "intercept-set-tool-config",
+    "method": "PUT",
+    "path": "/api/intercept/tool-config",
+    "handler": "interceptSetToolConfig",
+    "source": "server/intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled_tools"
+    ]
+  },
+  {
+    "operation": "get-llm",
+    "method": "GET",
+    "path": "/api/llm",
+    "handler": "getLLM",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "set-llm",
+    "method": "POST",
+    "path": "/api/llm",
+    "handler": "setLLM",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "api_key",
+      "base_url",
+      "context_window_k",
+      "model",
+      "provider",
+      "proxy",
+      "rate_per_minute",
+      "rate_per_second",
+      "reasoning_effort",
+      "thinking_type"
+    ]
+  },
+  {
+    "operation": "list-models",
+    "method": "POST",
+    "path": "/api/llm/models",
+    "handler": "pgListModels",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "api_key",
+      "base_url",
+      "data",
+      "id",
+      "profile_id",
+      "provider",
+      "proxy"
+    ]
+  },
+  {
+    "operation": "llm-pool-status",
+    "method": "GET",
+    "path": "/api/llm/pool",
+    "handler": "pgLLMPoolStatus",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "llm-pool-reset",
+    "method": "POST",
+    "path": "/api/llm/pool/reset",
+    "handler": "pgLLMPoolReset",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "id"
+    ]
+  },
+  {
+    "operation": "list-profiles",
+    "method": "GET",
+    "path": "/api/llm/profiles",
+    "handler": "pgListProfiles",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "save-profile",
+    "method": "POST",
+    "path": "/api/llm/profiles",
+    "handler": "pgSaveProfile",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "-",
+      "api_key",
+      "streaming"
+    ]
+  },
+  {
+    "operation": "activate-profile",
+    "method": "POST",
+    "path": "/api/llm/profiles/active",
+    "handler": "pgActivateProfile",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "id"
+    ]
+  },
+  {
+    "operation": "delete-profile",
+    "method": "DELETE",
+    "path": "/api/llm/profiles/{id}",
+    "handler": "pgDeleteProfile",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-llm-records",
+    "method": "DELETE",
+    "path": "/api/llm/records",
+    "handler": "pgDeleteLLMRecords",
+    "source": "server/commands.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-llm-records",
+    "method": "GET",
+    "path": "/api/llm/records",
+    "handler": "pgListLLMRecords",
+    "source": "server/commands.go",
+    "query_hints": [
+      "model",
+      "page",
+      "session",
+      "size",
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "token-by-model",
+    "method": "GET",
+    "path": "/api/llm/records/by-model",
+    "handler": "pgTokenByModel",
+    "source": "server/commands.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "llm-tasks",
+    "method": "GET",
+    "path": "/api/llm/records/tasks",
+    "handler": "pgLLMTasks",
+    "source": "server/commands.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-llm-record",
+    "method": "GET",
+    "path": "/api/llm/records/{id}",
+    "handler": "pgGetLLMRecord",
+    "source": "server/commands.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-llm-retry-policy",
+    "method": "GET",
+    "path": "/api/llm/retry-policy",
+    "handler": "pgGetLLMRetryPolicy",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "save-llm-retry-policy",
+    "method": "POST",
+    "path": "/api/llm/retry-policy",
+    "handler": "pgSaveLLMRetryPolicy",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "test-llm",
+    "method": "POST",
+    "path": "/api/llm/test",
+    "handler": "testLLM",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "api_key",
+      "base_url",
+      "model",
+      "profile_id",
+      "provider",
+      "proxy",
+      "reasoning_effort",
+      "session_header_key",
+      "streaming",
+      "thinking_type"
+    ]
+  },
+  {
+    "operation": "get-logs",
+    "method": "GET",
+    "path": "/api/logs",
+    "handler": "getLogs",
+    "source": "server/server.go",
+    "query_hints": [
+      "limit",
+      "since"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-logs-history",
+    "method": "GET",
+    "path": "/api/logs/history",
+    "handler": "getLogsHistory",
+    "source": "server/server.go",
+    "query_hints": [
+      "before",
+      "limit"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "stream-logs",
+    "method": "GET",
+    "path": "/api/logs/stream",
+    "handler": "streamLogs",
+    "source": "server/server.go",
+    "query_hints": [
+      "since"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-mcp",
+    "method": "GET",
+    "path": "/api/mcp",
+    "handler": "pgListMCP",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "save-mcp",
+    "method": "POST",
+    "path": "/api/mcp",
+    "handler": "pgSaveMCP",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-mcp",
+    "method": "DELETE",
+    "path": "/api/mcp/{id}",
+    "handler": "pgDeleteMCP",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "refresh-mcp",
+    "method": "POST",
+    "path": "/api/mcp/{id}/refresh",
+    "handler": "pgRefreshMCP",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "mcp-tools",
+    "method": "GET",
+    "path": "/api/mcp/{id}/tools",
+    "handler": "pgMCPTools",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-list-channels",
+    "method": "GET",
+    "path": "/api/notify/channels",
+    "handler": "notifyListChannels",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-create-channel",
+    "method": "POST",
+    "path": "/api/notify/channels",
+    "handler": "notifyCreateChannel",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "config",
+      "enabled",
+      "filter",
+      "kind",
+      "mode",
+      "name",
+      "rate_per_min"
+    ]
+  },
+  {
+    "operation": "notify-delete-channel",
+    "method": "DELETE",
+    "path": "/api/notify/channels/{id}",
+    "handler": "notifyDeleteChannel",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-update-channel",
+    "method": "PATCH",
+    "path": "/api/notify/channels/{id}",
+    "handler": "notifyUpdateChannel",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "config",
+      "enabled",
+      "filter",
+      "kind",
+      "mode",
+      "name",
+      "rate_per_min"
+    ]
+  },
+  {
+    "operation": "notify-test-channel",
+    "method": "POST",
+    "path": "/api/notify/channels/{id}/test",
+    "handler": "notifyTestChannel",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-list-deliveries",
+    "method": "GET",
+    "path": "/api/notify/deliveries",
+    "handler": "notifyListDeliveries",
+    "source": "server/notify_api.go",
+    "query_hints": [
+      "channel_id",
+      "event_kind",
+      "state"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-retry-delivery",
+    "method": "POST",
+    "path": "/api/notify/deliveries/{id}/retry",
+    "handler": "notifyRetryDelivery",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "notify-meta",
+    "method": "GET",
+    "path": "/api/notify/meta",
+    "handler": "notifyMeta",
+    "source": "server/notify_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-report",
+    "method": "GET",
+    "path": "/api/report",
+    "handler": "getReport",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-settings",
+    "method": "GET",
+    "path": "/api/settings",
+    "handler": "getSettings",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "put-settings",
+    "method": "PUT",
+    "path": "/api/settings",
+    "handler": "putSettings",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agent_traffic_binding",
+      "brave_search_api_key",
+      "constraints_inject_planner",
+      "constraints_inject_worker",
+      "global_proxy",
+      "llm_pool_bind_fallback",
+      "llm_pool_enabled",
+      "llm_record",
+      "noa_compaction",
+      "notify_digest_interval_min",
+      "notify_enabled",
+      "notify_public_base_url",
+      "python_interpreter",
+      "task_concurrency_enabled",
+      "task_concurrency_limit",
+      "tavily_search_api_key",
+      "traffic_capture",
+      "web_search_backend",
+      "web_search_enabled",
+      "web_search_proxy",
+      "workers"
+    ]
+  },
+  {
+    "operation": "detect-python",
+    "method": "POST",
+    "path": "/api/settings/python/detect",
+    "handler": "pgDetectPython",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "test-web-search",
+    "method": "POST",
+    "path": "/api/settings/web-search/test",
+    "handler": "testWebSearch",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "brave_search_api_key",
+      "tavily_search_api_key",
+      "web_search_backend",
+      "web_search_proxy"
+    ]
+  },
+  {
+    "operation": "cancel-side-request",
+    "method": "POST",
+    "path": "/api/side-questions/{requestID}/cancel",
+    "handler": "cancelSideRequest",
+    "source": "server/side_questions.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "side-events",
+    "method": "GET",
+    "path": "/api/side-questions/{requestID}/events",
+    "handler": "sideEvents",
+    "source": "server/side_questions.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-skills",
+    "method": "GET",
+    "path": "/api/skills",
+    "handler": "fsListSkills",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-skill",
+    "method": "POST",
+    "path": "/api/skills",
+    "handler": "fsCreateSkill",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "compatibility",
+      "description",
+      "instructions",
+      "license",
+      "mcps",
+      "name"
+    ]
+  },
+  {
+    "operation": "missing-skills",
+    "method": "GET",
+    "path": "/api/skills/missing",
+    "handler": "fsMissingSkills",
+    "source": "server/server_mgmt.go",
+    "query_hints": [
+      "limit"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "upload-skill",
+    "method": "POST",
+    "path": "/api/skills/upload",
+    "handler": "fsUploadSkill",
+    "source": "server/server_mgmt.go",
+    "query_hints": [
+      "overwrite"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-skill",
+    "method": "DELETE",
+    "path": "/api/skills/{name}",
+    "handler": "fsDeleteSkill",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-dir",
+    "method": "POST",
+    "path": "/api/skills/{name}/dirs",
+    "handler": "fsCreateDir",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "path"
+    ]
+  },
+  {
+    "operation": "list-files",
+    "method": "GET",
+    "path": "/api/skills/{name}/files",
+    "handler": "fsListFiles",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-path",
+    "method": "DELETE",
+    "path": "/api/skills/{name}/files/{file...}",
+    "handler": "fsDeletePath",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "read-file",
+    "method": "GET",
+    "path": "/api/skills/{name}/files/{file...}",
+    "handler": "fsReadFile",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "write-file",
+    "method": "PUT",
+    "path": "/api/skills/{name}/files/{file...}",
+    "handler": "fsWriteFile",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "content"
+    ]
+  },
+  {
+    "operation": "update-skill-meta",
+    "method": "PUT",
+    "path": "/api/skills/{name}/meta",
+    "handler": "fsUpdateSkillMeta",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "compatibility",
+      "description",
+      "license",
+      "mcps"
+    ]
+  },
+  {
+    "operation": "skill-usage",
+    "method": "GET",
+    "path": "/api/skills/{name}/usage",
+    "handler": "fsSkillUsage",
+    "source": "server/server_mgmt.go",
+    "query_hints": [
+      "limit"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "stats",
+    "method": "GET",
+    "path": "/api/stats",
+    "handler": "stats",
+    "source": "server/server.go",
+    "query_hints": [
+      "task"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "fofa-config-get",
+    "method": "GET",
+    "path": "/api/sync/fofa/config",
+    "handler": "fofaConfigGet",
+    "source": "server/sync_fofa.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "fofa-config-set",
+    "method": "POST",
+    "path": "/api/sync/fofa/config",
+    "handler": "fofaConfigSet",
+    "source": "server/sync_fofa.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "api_key",
+      "base_url",
+      "email",
+      "endpoint"
+    ]
+  },
+  {
+    "operation": "fofa-import",
+    "method": "POST",
+    "path": "/api/sync/fofa/import",
+    "handler": "fofaImport",
+    "source": "server/sync_fofa.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "company_name",
+      "create_company",
+      "query",
+      "size"
+    ]
+  },
+  {
+    "operation": "fofa-preview",
+    "method": "POST",
+    "path": "/api/sync/fofa/preview",
+    "handler": "fofaPreview",
+    "source": "server/sync_fofa.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "query"
+    ]
+  },
+  {
+    "operation": "fofa-quota",
+    "method": "GET",
+    "path": "/api/sync/fofa/quota",
+    "handler": "fofaQuota",
+    "source": "server/sync_fofa.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "sync-ss-datasource",
+    "method": "POST",
+    "path": "/api/sync/scopesentry/datasource",
+    "handler": "syncSSDatasource",
+    "source": "server/sync_scopesentry.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "api_key",
+      "url"
+    ]
+  },
+  {
+    "operation": "sync-ss-projects",
+    "method": "GET",
+    "path": "/api/sync/scopesentry/projects",
+    "handler": "syncSSProjects",
+    "source": "server/sync_scopesentry.go",
+    "query_hints": [
+      "search"
+    ],
+    "body_field_hints": [
+      "result",
+      "tag"
+    ]
+  },
+  {
+    "operation": "sync-ss-status",
+    "method": "GET",
+    "path": "/api/sync/scopesentry/status",
+    "handler": "syncSSStatus",
+    "source": "server/sync_scopesentry.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "sync-ss-run",
+    "method": "POST",
+    "path": "/api/sync/scopesentry/sync",
+    "handler": "syncSSRun",
+    "source": "server/sync_scopesentry.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "asset_types",
+      "create_company",
+      "dimension",
+      "page_size",
+      "targets"
+    ]
+  },
+  {
+    "operation": "sync-ss-tasks",
+    "method": "GET",
+    "path": "/api/sync/scopesentry/tasks",
+    "handler": "syncSSTasks",
+    "source": "server/sync_scopesentry.go",
+    "query_hints": [
+      "search"
+    ],
+    "body_field_hints": [
+      "list"
+    ]
+  },
+  {
+    "operation": "list-task-archives",
+    "method": "GET",
+    "path": "/api/task-archives",
+    "handler": "listTaskArchives",
+    "source": "server/task_archives.go",
+    "query_hints": [
+      "page",
+      "q",
+      "size",
+      "state"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-task-archives-batch",
+    "method": "POST",
+    "path": "/api/task-archives/delete/batch",
+    "handler": "deleteTaskArchivesBatch",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "restore-task-archives-batch",
+    "method": "POST",
+    "path": "/api/task-archives/restore/batch",
+    "handler": "restoreTaskArchivesBatch",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "queue-task-archive-delete",
+    "method": "DELETE",
+    "path": "/api/task-archives/{id}",
+    "handler": "queueTaskArchiveDelete",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-task-archive",
+    "method": "GET",
+    "path": "/api/task-archives/{id}",
+    "handler": "getTaskArchive",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "queue-task-archive-restore",
+    "method": "POST",
+    "path": "/api/task-archives/{id}/restore",
+    "handler": "queueTaskArchiveRestore",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-task-categories",
+    "method": "GET",
+    "path": "/api/task-categories",
+    "handler": "pgListTaskCategories",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-task-category",
+    "method": "POST",
+    "path": "/api/task-categories",
+    "handler": "pgCreateTaskCategory",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-task-category",
+    "method": "DELETE",
+    "path": "/api/task-categories/{id}",
+    "handler": "pgDeleteTaskCategory",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "rename-task-category",
+    "method": "PATCH",
+    "path": "/api/task-categories/{id}",
+    "handler": "pgRenameTaskCategory",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-task-templates",
+    "method": "GET",
+    "path": "/api/task-templates",
+    "handler": "pgListTaskTemplates",
+    "source": "server/task_templates.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-task-template",
+    "method": "POST",
+    "path": "/api/task-templates",
+    "handler": "pgCreateTaskTemplate",
+    "source": "server/task_templates.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "category_id",
+      "description",
+      "goal",
+      "intercept_rules",
+      "name"
+    ]
+  },
+  {
+    "operation": "delete-task-template",
+    "method": "DELETE",
+    "path": "/api/task-templates/{id}",
+    "handler": "pgDeleteTaskTemplate",
+    "source": "server/task_templates.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-task-template",
+    "method": "PATCH",
+    "path": "/api/task-templates/{id}",
+    "handler": "pgUpdateTaskTemplate",
+    "source": "server/task_templates.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "category_id",
+      "description",
+      "goal",
+      "intercept_rules",
+      "name"
+    ]
+  },
+  {
+    "operation": "list-tasks",
+    "method": "GET",
+    "path": "/api/tasks",
+    "handler": "listTasks",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-task",
+    "method": "POST",
+    "path": "/api/tasks",
+    "handler": "createTask",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "category_id",
+      "company_ids",
+      "coverage_enabled",
+      "description",
+      "goal",
+      "intercept_rules",
+      "llm_profile_id",
+      "llm_profile_ids",
+      "name",
+      "plan_heartbeat_seconds",
+      "seed_first_intent",
+      "source_task_ids",
+      "timeout_seconds"
+    ]
+  },
+  {
+    "operation": "queue-task-archives-batch",
+    "method": "POST",
+    "path": "/api/tasks/archive/batch",
+    "handler": "queueTaskArchivesBatch",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "archive_ids",
+      "task_ids"
+    ]
+  },
+  {
+    "operation": "update-tasks-category-batch",
+    "method": "POST",
+    "path": "/api/tasks/category/batch",
+    "handler": "updateTasksCategoryBatch",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "category_id",
+      "task_ids"
+    ]
+  },
+  {
+    "operation": "control-tasks-batch",
+    "method": "POST",
+    "path": "/api/tasks/control/batch",
+    "handler": "controlTasksBatch",
+    "source": "server/task_control.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "task_ids"
+    ]
+  },
+  {
+    "operation": "delete-task",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}",
+    "handler": "pgDeleteTask",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-task",
+    "method": "GET",
+    "path": "/api/tasks/{id}",
+    "handler": "getTask",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-task-metadata",
+    "method": "PATCH",
+    "path": "/api/tasks/{id}",
+    "handler": "updateTaskMetadata",
+    "source": "server/task_metadata.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "name",
+      "pinned"
+    ]
+  },
+  {
+    "operation": "queue-task-archive",
+    "method": "POST",
+    "path": "/api/tasks/{id}/archive",
+    "handler": "queueTaskArchive",
+    "source": "server/task_archives.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-asset-refs",
+    "method": "GET",
+    "path": "/api/tasks/{id}/asset-refs",
+    "handler": "taskAssetRefs",
+    "source": "server/server.go",
+    "query_hints": [
+      "asset_id"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "attach-task-assets",
+    "method": "POST",
+    "path": "/api/tasks/{id}/assets",
+    "handler": "attachTaskAssets",
+    "source": "server/task_assets.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "asset_ids",
+      "scope",
+      "source_summary"
+    ]
+  },
+  {
+    "operation": "detach-task-asset",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/assets/{assetID}",
+    "handler": "detachTaskAsset",
+    "source": "server/task_assets.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-task-category",
+    "method": "PATCH",
+    "path": "/api/tasks/{id}/category",
+    "handler": "updateTaskCategory",
+    "source": "server/task_categories.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "category_id"
+    ]
+  },
+  {
+    "operation": "delete-tasks-id-chat-side-questions",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/chat/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "get-tasks-id-chat-side-questions",
+    "method": "GET",
+    "path": "/api/tasks/{id}/chat/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "post-tasks-id-chat-side-questions",
+    "method": "POST",
+    "path": "/api/tasks/{id}/chat/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "task-chat-status",
+    "method": "GET",
+    "path": "/api/tasks/{id}/chat/status",
+    "handler": "taskChatStatus",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "stop-chat",
+    "method": "POST",
+    "path": "/api/tasks/{id}/chat/stop",
+    "handler": "stopChat",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-constraints",
+    "method": "GET",
+    "path": "/api/tasks/{id}/constraints",
+    "handler": "listConstraints",
+    "source": "server/constraints_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "add-constraint",
+    "method": "POST",
+    "path": "/api/tasks/{id}/constraints",
+    "handler": "addConstraint",
+    "source": "server/constraints_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "kind",
+      "text"
+    ]
+  },
+  {
+    "operation": "delete-constraint",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/constraints/{cid}",
+    "handler": "deleteConstraint",
+    "source": "server/constraints_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "edit-constraint",
+    "method": "PATCH",
+    "path": "/api/tasks/{id}/constraints/{cid}",
+    "handler": "editConstraint",
+    "source": "server/constraints_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "kind",
+      "text"
+    ]
+  },
+  {
+    "operation": "control",
+    "method": "POST",
+    "path": "/api/tasks/{id}/control",
+    "handler": "control",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action"
+    ]
+  },
+  {
+    "operation": "task-coverage",
+    "method": "GET",
+    "path": "/api/tasks/{id}/coverage",
+    "handler": "taskCoverage",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-coverage-graph",
+    "method": "GET",
+    "path": "/api/tasks/{id}/coverage-graph",
+    "handler": "taskCoverageGraph",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-goals",
+    "method": "GET",
+    "path": "/api/tasks/{id}/goals",
+    "handler": "listGoals",
+    "source": "server/goals_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "add-goal",
+    "method": "POST",
+    "path": "/api/tasks/{id}/goals",
+    "handler": "addGoal",
+    "source": "server/goals_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "text",
+      "vulnclass"
+    ]
+  },
+  {
+    "operation": "delete-goal",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/goals/{gid}",
+    "handler": "deleteGoal",
+    "source": "server/goals_api.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "edit-goal",
+    "method": "PATCH",
+    "path": "/api/tasks/{id}/goals/{gid}",
+    "handler": "editGoal",
+    "source": "server/goals_api.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "text",
+      "vulnclass"
+    ]
+  },
+  {
+    "operation": "task-intent-assets",
+    "method": "GET",
+    "path": "/api/tasks/{id}/intent-assets",
+    "handler": "taskIntentAssets",
+    "source": "server/task_assets.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "rerun-blocked",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intents/rerun-blocked",
+    "handler": "rerunBlocked",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "control-intent",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intents/{iid}/control",
+    "handler": "controlIntent",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "mode",
+      "reason"
+    ]
+  },
+  {
+    "operation": "send-worker-message",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intents/{iid}/messages",
+    "handler": "sendWorkerMessage",
+    "source": "server/intent_intervention.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "message",
+      "request_id"
+    ]
+  },
+  {
+    "operation": "rerun-intent",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intents/{iid}/rerun",
+    "handler": "rerunIntent",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-tasks-id-intents-iid-side-questions",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "get-tasks-id-intents-iid-side-questions",
+    "method": "GET",
+    "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "post-tasks-id-intents-iid-side-questions",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intents/{iid}/side-questions",
+    "handler": "handleSideQuestions",
+    "source": "server/side_questions.go",
+    "query_hints": [
+      "before"
+    ],
+    "body_field_hints": [
+      "client_request_id",
+      "question"
+    ]
+  },
+  {
+    "operation": "task-intercept-list-rules",
+    "method": "GET",
+    "path": "/api/tasks/{id}/intercept-rules",
+    "handler": "taskInterceptListRules",
+    "source": "server/task_intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-intercept-create-rule",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intercept-rules",
+    "handler": "taskInterceptCreateRule",
+    "source": "server/task_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "enabled",
+      "kind",
+      "note",
+      "pattern"
+    ]
+  },
+  {
+    "operation": "task-intercept-delete-rule",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/intercept-rules/{rid}",
+    "handler": "taskInterceptDeleteRule",
+    "source": "server/task_intercept.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-intercept-update-rule",
+    "method": "PUT",
+    "path": "/api/tasks/{id}/intercept-rules/{rid}",
+    "handler": "taskInterceptUpdateRule",
+    "source": "server/task_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "action",
+      "enabled",
+      "kind",
+      "note",
+      "pattern"
+    ]
+  },
+  {
+    "operation": "task-intercept-toggle-rule",
+    "method": "POST",
+    "path": "/api/tasks/{id}/intercept-rules/{rid}/toggle",
+    "handler": "taskInterceptToggleRule",
+    "source": "server/task_intercept.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled"
+    ]
+  },
+  {
+    "operation": "update-task-llm-profiles",
+    "method": "PUT",
+    "path": "/api/tasks/{id}/llm",
+    "handler": "updateTaskLLMProfiles",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "active_llm_profile_id",
+      "llm_profile_ids"
+    ]
+  },
+  {
+    "operation": "task-llm-resolution-handler",
+    "method": "GET",
+    "path": "/api/tasks/{id}/llm/resolution",
+    "handler": "taskLLMResolutionHandler",
+    "source": "server/task_resolution.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-scope-list",
+    "method": "GET",
+    "path": "/api/tasks/{id}/scope",
+    "handler": "taskScopeList",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "task-scope-add",
+    "method": "POST",
+    "path": "/api/tasks/{id}/scope",
+    "handler": "taskScopeAdd",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "kind",
+      "reason",
+      "value"
+    ]
+  },
+  {
+    "operation": "task-scope-delete",
+    "method": "DELETE",
+    "path": "/api/tasks/{id}/scope/{sid}",
+    "handler": "taskScopeDelete",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "conversation-tokens",
+    "method": "GET",
+    "path": "/api/tokens/conversations",
+    "handler": "conversationTokens",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "token-daily-stats",
+    "method": "GET",
+    "path": "/api/tokens/daily",
+    "handler": "tokenDailyStats",
+    "source": "server/server.go",
+    "query_hints": [
+      "days"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "usage-stats",
+    "method": "GET",
+    "path": "/api/tokens/usage",
+    "handler": "pgUsageStats",
+    "source": "server/commands.go",
+    "query_hints": [
+      "days"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "list-tools",
+    "method": "GET",
+    "path": "/api/tools",
+    "handler": "pgListTools",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "create-custom-tool",
+    "method": "POST",
+    "path": "/api/tools/custom",
+    "handler": "pgCreateCustomTool",
+    "source": "server/customtool.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agents",
+      "deferred",
+      "description",
+      "enabled",
+      "exec",
+      "key",
+      "kind",
+      "schema"
+    ]
+  },
+  {
+    "operation": "test-custom-tool",
+    "method": "POST",
+    "path": "/api/tools/custom/test",
+    "handler": "pgTestCustomTool",
+    "source": "server/customtool.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "exec",
+      "kind",
+      "params"
+    ]
+  },
+  {
+    "operation": "delete-custom-tool",
+    "method": "DELETE",
+    "path": "/api/tools/custom/{key}",
+    "handler": "pgDeleteCustomTool",
+    "source": "server/customtool.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-custom-tool",
+    "method": "PUT",
+    "path": "/api/tools/custom/{key}",
+    "handler": "pgUpdateCustomTool",
+    "source": "server/customtool.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agents",
+      "deferred",
+      "description",
+      "enabled",
+      "exec",
+      "key",
+      "kind",
+      "schema"
+    ]
+  },
+  {
+    "operation": "update-tool",
+    "method": "PUT",
+    "path": "/api/tools/{key}",
+    "handler": "pgUpdateTool",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agents",
+      "description",
+      "enabled",
+      "schema"
+    ]
+  },
+  {
+    "operation": "reset-tool",
+    "method": "POST",
+    "path": "/api/tools/{key}/reset",
+    "handler": "pgResetTool",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-traffic",
+    "method": "DELETE",
+    "path": "/api/traffic",
+    "handler": "deleteTraffic",
+    "source": "server/server.go",
+    "query_hints": [
+      "host"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-traffic",
+    "method": "GET",
+    "path": "/api/traffic",
+    "handler": "getTraffic",
+    "source": "server/server.go",
+    "query_hints": [
+      "body",
+      "host",
+      "method",
+      "order",
+      "page",
+      "path",
+      "q",
+      "resp_max",
+      "resp_min",
+      "size",
+      "sort",
+      "status"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-all-traffic",
+    "method": "DELETE",
+    "path": "/api/traffic/all",
+    "handler": "deleteAllTraffic",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-traffic-blob",
+    "method": "GET",
+    "path": "/api/traffic/blob",
+    "handler": "getTrafficBlob",
+    "source": "server/server.go",
+    "query_hints": [
+      "hash"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "get-traffic-exchange",
+    "method": "GET",
+    "path": "/api/traffic/exchange",
+    "handler": "getTrafficExchange",
+    "source": "server/server.go",
+    "query_hints": [
+      "id"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-traffic-hosts",
+    "method": "DELETE",
+    "path": "/api/traffic/hosts",
+    "handler": "deleteTrafficHosts",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "hosts"
+    ]
+  },
+  {
+    "operation": "get-traffic-hosts",
+    "method": "GET",
+    "path": "/api/traffic/hosts",
+    "handler": "getTrafficHosts",
+    "source": "server/server.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "delete-trigger",
+    "method": "DELETE",
+    "path": "/api/triggers/{id}",
+    "handler": "pgDeleteTrigger",
+    "source": "server/triggers.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-trigger",
+    "method": "PATCH",
+    "path": "/api/triggers/{id}",
+    "handler": "pgUpdateTrigger",
+    "source": "server/triggers.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "enabled",
+      "finding_message",
+      "goal_message",
+      "interval_message",
+      "interval_sec",
+      "on_finding",
+      "on_goal_met",
+      "on_task_create",
+      "on_task_timeout",
+      "on_tool_call",
+      "task_create_message",
+      "task_timeout_message",
+      "tool_call_message",
+      "tool_names"
+    ]
+  },
+  {
+    "operation": "update-apply",
+    "method": "POST",
+    "path": "/api/update/apply",
+    "handler": "updateApply",
+    "source": "server/update.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-check",
+    "method": "GET",
+    "path": "/api/update/check",
+    "handler": "updateCheck",
+    "source": "server/update.go",
+    "query_hints": [
+      "force"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-rollback",
+    "method": "POST",
+    "path": "/api/update/rollback",
+    "handler": "updateRollback",
+    "source": "server/update.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "update-stream",
+    "method": "GET",
+    "path": "/api/update/stream",
+    "handler": "updateStream",
+    "source": "server/update.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "toggle-skill-visibility",
+    "method": "POST",
+    "path": "/api/visibility/skill/toggle",
+    "handler": "pgToggleSkillVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agent_id",
+      "skill_name",
+      "visible"
+    ]
+  },
+  {
+    "operation": "skill-visibility",
+    "method": "GET",
+    "path": "/api/visibility/skill/{name}",
+    "handler": "pgSkillVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "toggle-visibility",
+    "method": "POST",
+    "path": "/api/visibility/toggle",
+    "handler": "pgToggleVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "agent_id",
+      "kind",
+      "resource_id",
+      "visible"
+    ]
+  },
+  {
+    "operation": "resource-visibility",
+    "method": "GET",
+    "path": "/api/visibility/{kind}/{id}",
+    "handler": "pgResourceVisibility",
+    "source": "server/server_mgmt.go",
+    "query_hints": [],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-delete",
+    "method": "DELETE",
+    "path": "/api/workspace/delete",
+    "handler": "wsDelete",
+    "source": "server/workspace.go",
+    "query_hints": [
+      "path"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-download",
+    "method": "GET",
+    "path": "/api/workspace/download",
+    "handler": "wsDownload",
+    "source": "server/workspace.go",
+    "query_hints": [
+      "path"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-list",
+    "method": "GET",
+    "path": "/api/workspace/list",
+    "handler": "wsList",
+    "source": "server/workspace.go",
+    "query_hints": [
+      "path"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-mkdir",
+    "method": "POST",
+    "path": "/api/workspace/mkdir",
+    "handler": "wsMkdir",
+    "source": "server/workspace.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "path"
+    ]
+  },
+  {
+    "operation": "ws-read",
+    "method": "GET",
+    "path": "/api/workspace/read",
+    "handler": "wsRead",
+    "source": "server/workspace.go",
+    "query_hints": [
+      "path"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-upload",
+    "method": "POST",
+    "path": "/api/workspace/upload",
+    "handler": "wsUpload",
+    "source": "server/workspace.go",
+    "query_hints": [
+      "path"
+    ],
+    "body_field_hints": []
+  },
+  {
+    "operation": "ws-write",
+    "method": "POST",
+    "path": "/api/workspace/write",
+    "handler": "wsWrite",
+    "source": "server/workspace.go",
+    "query_hints": [],
+    "body_field_hints": [
+      "content",
+      "path"
+    ]
+  }
+]
